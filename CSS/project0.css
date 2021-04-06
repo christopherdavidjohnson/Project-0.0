@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-color: #587780;
+}
+
+body {
+  color: #587780;
+  display: flex;
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+
+.playernameinput {
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: #314347;
+  font-size: 9vh;
+  padding-bottom: 2vh;
+
+}
+
+.container {
+  background: lightblue;
+  margin-top: 4vh;
+  padding: 5vh;
+  border-radius: 10vh;
+}
+
+.style1{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.game-grid {
+  background: #587780;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2vh;
+  margin-top: 6%;
+}
+
+.game-cell {
+  display: flex;
+  height:16vh;
+  width: 16vh;
+  background: lightblue;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-size: 16vh;
+}
+
+.player1div {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+#player1 {
+  background-color: #bff1ff;
+  margin: 1vh;
+  padding: 1.5vh;
+  border-radius: 5vh;
+  border-style: solid;
+  font-size: 3vh;
+  margin-bottom: 1.5vh;
+  margin-left: 3vh;
+}
+#myBtnP1 {
+  background-color: #bff1ff;
+  border-radius: 7vh;
+  border-style: solid;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #314347;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  margin-bottom: 1vh;
+  margin-left: 1vh;
+}
+
+.player2div {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  /* padding: 1vh; */
+}
+#player2 {
+  background-color: #bff1ff;
+  margin: 1vh;
+  padding: 1.5vh;
+  border-radius: 5vh;
+  border-style: solid;
+  font-size: 3vh;
+  margin-top: 1.5vh;
+  margin-left: 3vh;
+}
+#myBtnP2 {
+  background-color: #bff1ff;
+  border-radius: 6vh;
+  border-style: solid;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #314347;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  margin-top: 1vh;
+  margin-left: 1vh;
+}
+
+
+
+.score {
+  display: inline-block;
+  font-size: 5vh;
+}
+
+.scoretext {
+  display: inline-block;
+  color: red;
+  font-size: 3vh;
+}
+
+.p1score.scoretext {
+
+}
+
+
+
+/* .master-after {
+  display: flex;
+  margin-left: 3vh;
+  text-align: center;
+  justify-content: center;
+} */
+
+.player1divafter {
+  margin-right: 3vh;
+}
+
+.player2divafter {
+  float: right;
+  text-align: right;
+}
+
+.p2score.scoretext {
+text-align: right;
+align-self: flex-end;
+}
