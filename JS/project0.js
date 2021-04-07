@@ -1,7 +1,9 @@
+$(".game-grid").delay(0).fadeIn(1000);
+
 const player1 = "X";
 const player2 = "O";
 
-let turnNumber = 0;
+let turnNumber = 1;
 
 let player1name;
 let player2name;
@@ -17,13 +19,13 @@ $("#myBtnP1").on('click', function() {
   player1name = ($("#player1").val());
   $("#myBtnP1").hide();
   $("#player1").hide();
-  $(".player1divafter").html("<p ID='player1name'>" + player1name + "</p>" + "<p class='p1score scoretext' ID='p1score'>0</p>");
+  $(".player1divafter").html("<p ID='player1name'><b>X </b>" + player1name + "<b> X</b>" + "</p>" + "<p class='p1score scoretext' ID='p1score'>0</p>");
 });
 $("#myBtnP2").on('click', function() {
   player2name = ($("#player2").val());
   $("#myBtnP2").hide();
   $("#player2").hide();
-  $(".player2divafter").html("<p ID='player2name'>" + player2name + "</p>" + "<p class='p2score scoretext' ID='p2score'>0</p>");
+  $(".player2divafter").html("<p ID='player2name'><b>O </b>" + player2name + "<b> O</b>" + "</p>" + "<p class='p2score scoretext' ID='p2score'>0</p>");
 });
 
 // Watch for click event and execute functions
@@ -33,15 +35,18 @@ $(".game-cell").on('click', function() {
 // Set the text to the value of the current player & add celebration image to cell
     ($(event.target).html(currentPlayer + "<img id='turn" + turnNumber + "' class='player" + currentPlayer + " celebrationimage' src='images/fireworks_final_speed.gif?" + turnNumber + "' alt='fireworks should be here'></img>"));
 
-
+  console.log(turnNumber);
 // Increase turn number
   turnNumber = (turnNumber + 1);
-  console.log(turnNumber);
+
+
 // Check for Win
-      checkWinHardcoding();
+
 // Switch Current Player
         if (currentPlayer === player1) {currentPlayer = player2}
-          else {currentPlayer = player1}
+          else {currentPlayer = player1};
+        checkWinHardcoding();
+            if (turnNumber === 10){$(".game-cell").text(""); turnNumber=1};
   }
 });
 
@@ -107,23 +112,23 @@ let winnerFunctionX = function () {
       else {firstPlayer = player1};
           currentPlayer = firstPlayer;
 
-  //reset board
-  // $(".game-cell").text("");
 
+          ($("img").on('click', function() {$(".game-cell").text("")}))
+turnNumber = 1;
   }
 
 
 // What to do when the game is won by O
 let winnerFunctionO = function () {
-      $(".playerO#turn0").show();
-      $(".playerO#turn1").show();
-      $(".playerO#turn2").show();
-      $(".playerO#turn3").show();
-      $(".playerO#turn4").show();
-      $(".playerO#turn5").show();
-      $(".playerO#turn6").show();
-      $(".playerO#turn7").show();
-      $(".playerO#turn8").show();
+  $(".playerO#turn0").delay(0).fadeIn(0);
+  $(".playerO#turn1").delay(166).fadeIn(0);
+  $(".playerO#turn2").delay(333).fadeIn(0);
+  $(".playerO#turn3").delay(500).fadeIn(0);
+  $(".playerO#turn4").delay(665).fadeIn(0);
+  $(".playerO#turn5").delay(831).fadeIn(0);
+  $(".playerO#turn6").delay(1000).fadeIn(0);
+  $(".playerO#turn7").delay(1166).fadeIn(0);
+  $(".playerO#turn8").delay(1332).fadeIn(0);
 
 
     if (player1 === "O"){(player1CurrentScore = player1CurrentScore + 1);
@@ -138,9 +143,12 @@ let winnerFunctionO = function () {
 
 
     currentPlayer = firstPlayer;
-  //reset board
-  // $(".game-cell").text("");
-  // Show celebration
+
+
+
+
+    ($("img").on('click', function() {$(".game-cell").text("")}))
+    turnNumber = 1;
 }
 
 // Who is the current player?

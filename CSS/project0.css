@@ -1,8 +1,11 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   border-color: #587780;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 body {
@@ -30,9 +33,12 @@ body {
 
 .container {
   background: lightblue;
-  margin-top: 4vh;
   padding: 5vh;
   border-radius: 10vh;
+  height: 96vh;
+  width: 62vh;
+  margin: 2vh;
+  overflow: hidden;
 }
 
 .style1{
@@ -41,23 +47,30 @@ body {
 }
 
 .game-grid {
-  background: #407280;
   display: grid;
+  /* display: none; */
+  background: #407280;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 2vh;
-  margin-top: 6%;
+  margin: 2vh;
+  overflow: visible;
+  margin-top: 2vh;
+
 }
 
 .game-cell {
+  position: relative;
   display: flex;
-  height:16vh;
-  width: 16vh;
+  height:15vh;
+  width: 15vh;
   background: lightblue;
   cursor: pointer;
   justify-content: center;
   align-items: center;
   font-size: 16vh;
+  position: relative;
+  overflow: visible;
 }
 
 .player1div {
@@ -135,6 +148,7 @@ body {
 
 .player1divafter {
   margin-right: 3vh;
+  margin-bottom: 8vh;
 }
 
 .player2divafter {
@@ -170,9 +184,18 @@ img {
   z-index: 1;
   height: 50vh;
   display: flex;
-  margin-right: 10vh;
+  position: absolute;
+
 }
 
 .celebrationimage {
   display: none;
 }
+
+/* #resetgame {
+position: absolute;
+width: 100vw;
+height: 100vh;
+display: none;
+overflow: hidden;
+} */
