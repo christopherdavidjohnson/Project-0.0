@@ -12,7 +12,6 @@ body {
   justify-content: center;
 }
 
-
 .playernameinput {
   display: inline-block;
   text-align: center;
@@ -23,7 +22,7 @@ body {
   display: flex;
   text-align: center;
   justify-content: center;
-  color: #314347;
+  color: #396673;
   font-size: 9vh;
   padding-bottom: 2vh;
 
@@ -41,9 +40,8 @@ body {
   justify-content: space-around;
 }
 
-
 .game-grid {
-  background: #587780;
+  background: #407280;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -67,6 +65,7 @@ body {
   /* justify-content: center;
   align-items: center; */
 }
+
 #player1 {
   background-color: #bff1ff;
   margin: 1vh;
@@ -77,6 +76,7 @@ body {
   margin-bottom: 1.5vh;
   margin-left: 3vh;
 }
+
 #myBtnP1 {
   background-color: #bff1ff;
   border-radius: 7vh;
@@ -92,10 +92,8 @@ body {
 
 .player2div {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
-  /* padding: 1vh; */
 }
+
 #player2 {
   background-color: #bff1ff;
   margin: 1vh;
@@ -106,6 +104,7 @@ body {
   margin-top: 1.5vh;
   margin-left: 3vh;
 }
+
 #myBtnP2 {
   background-color: #bff1ff;
   border-radius: 6vh;
@@ -119,11 +118,9 @@ body {
   margin-left: 1vh;
 }
 
-
-
 .score {
   display: inline-block;
-  font-size: 5vh;
+  font-size: 4vh;
 }
 
 .scoretext {
@@ -133,17 +130,8 @@ body {
 }
 
 .p1score.scoretext {
-
 }
 
-
-
-/* .master-after {
-  display: flex;
-  margin-left: 3vh;
-  text-align: center;
-  justify-content: center;
-} */
 
 .player1divafter {
   margin-right: 3vh;
@@ -157,4 +145,34 @@ body {
 .p2score.scoretext {
 text-align: right;
 align-self: flex-end;
+}
+
+input:focus {
+  outline:none;
+}
+
+button:focus {
+  outline:none;
+}
+
+#celebration {
+  display: flex;
+  position: absolute;
+  background-color: rgba(0,0,0,0);
+}
+
+#fireworks1 {
+  margin-top: 5vh;
+  height: 100vh;
+}
+
+img {
+  z-index: 1;
+  height: 50vh;
+  display: flex;
+  margin-right: 10vh;
+}
+
+.celebrationimage {
+  display: none;
 }

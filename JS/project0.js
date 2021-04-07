@@ -1,39 +1,153 @@
-const player1 = "O";
-const player2 = "X";
+const player1 = "X";
+const player2 = "O";
+
+let turnNumber = 0;
 
 let player1name;
 let player2name;
 
 let currentPlayer = player1;
+let firstPlayer = player2;
 
-// Watch for click event and execute function
-$(".game-cell").on('click', function() {
+player1CurrentScore = 0;
+player2CurrentScore = 0;
 
-// Is the cell empty? If so, fill it and switch current player.
-  if (($(event.target).text()!="O") && ($(event.target).text()!="X")){
-
-// Set the text to the value of the current player
-    ($(event.target).text(currentPlayer));
-
-// Switch Current Player
-      if (currentPlayer === player1) {currentPlayer = player2}
-        else {currentPlayer = player1}
-  }
-});
-
-// Display input player names & hide input fields.
+// Display input player names then hide input fields & create scoretable #p1score & #p2score
 $("#myBtnP1").on('click', function() {
   player1name = ($("#player1").val());
   $("#myBtnP1").hide();
   $("#player1").hide();
-  $(".player1divafter").html("<p ID='player1name'>" + player1name + "</p>" + "<p class='p1score scoretext'>s</p>");
+  $(".player1divafter").html("<p ID='player1name'>" + player1name + "</p>" + "<p class='p1score scoretext' ID='p1score'>0</p>");
 });
 $("#myBtnP2").on('click', function() {
   player2name = ($("#player2").val());
   $("#myBtnP2").hide();
   $("#player2").hide();
-  $(".player2divafter").html("<p ID='player2name'>" + player2name + "</p>" + "<p class='p2score scoretext'>s</p>");
+  $(".player2divafter").html("<p ID='player2name'>" + player2name + "</p>" + "<p class='p2score scoretext' ID='p2score'>0</p>");
 });
+
+// Watch for click event and execute functions
+$(".game-cell").on('click', function() {
+// Is the cell empty? If so, fill it and switch current player.
+  if ($(event.target).text()===""){
+// Set the text to the value of the current player & add celebration image to cell
+    ($(event.target).html(currentPlayer + "<img id='turn" + turnNumber + "' class='player" + currentPlayer + " celebrationimage' src='images/fireworks_final_speed.gif?" + turnNumber + "' alt='fireworks should be here'></img>"));
+
+
+// Increase turn number
+  turnNumber = (turnNumber + 1);
+  console.log(turnNumber);
+// Check for Win
+      checkWinHardcoding();
+// Switch Current Player
+        if (currentPlayer === player1) {currentPlayer = player2}
+          else {currentPlayer = player1}
+  }
+});
+
+
+      // FUNCTIONS
+
+// Check Wins (hardcode) & Execute Win Function
+let checkWinHardcoding = function() {
+
+  // X Wins
+    // Vertical
+  if ($("#A1, #A2, #A3").text() === "XXX"){winnerFunctionX();}
+
+  if ($("#B1, #B2, #B3").text() === "XXX"){winnerFunctionX()};
+  if ($("#C1, #C2, #C3").text() === "XXX"){winnerFunctionX()};
+    //Horizontal
+  if ($("#A1, #B1, #C1").text() === "XXX"){winnerFunctionX()};
+  if ($("#A2, #B2, #C2").text() === "XXX"){winnerFunctionX()};
+  if ($("#A3, #B3, #C3").text() === "XXX"){winnerFunctionX()};
+    //Diagonal
+  if ($("#A1, #B2, #C3").text() === "XXX"){winnerFunctionX()};
+  if ($("#C1, #B2, #A3").text() === "XXX"){winnerFunctionX()};
+
+  // O wins
+    // Vertical
+  if ($("#A1, #A2, #A3").text() === "OOO"){winnerFunctionO()};
+  if ($("#B1, #B2, #B3").text() === "OOO"){winnerFunctionO()};
+  if ($("#C1, #C2, #C3").text() === "OOO"){winnerFunctionO()};
+    // Horizontal
+  if ($("#A1, #B1, #C1").text() === "OOO"){winnerFunctionO()};
+  if ($("#A2, #B2, #C2").text() === "OOO"){winnerFunctionO()};
+  if ($("#A3, #B3, #C3").text() === "OOO"){winnerFunctionO()};
+    // Diagonal
+  if ($("#A1, #B2, #C3").text() === "OOO"){winnerFunctionO()};
+  if ($("#C1, #B2, #A3").text() === "OOO"){winnerFunctionO()};
+}
+
+
+// What to do when the game is won by X
+let winnerFunctionX = function () {
+  $(".playerX#turn0").delay(0).fadeIn(0);
+  $(".playerX#turn1").delay(166).fadeIn(0);
+  $(".playerX#turn2").delay(333).fadeIn(0);
+  $(".playerX#turn3").delay(500).fadeIn(0);
+  $(".playerX#turn4").delay(665).fadeIn(0);
+  $(".playerX#turn5").delay(831).fadeIn(0);
+  $(".playerX#turn6").delay(1000).fadeIn(0);
+  $(".playerX#turn7").delay(1166).fadeIn(0);
+  $(".playerX#turn8").delay(1332).fadeIn(0);
+
+
+    if (player1 === "X"){(player1CurrentScore = player1CurrentScore + 1);
+    $("#p1score").text(player1CurrentScore);
+    }
+      else if (player2 === "X"){(player2CurrentScore = player2CurrentScore + 1);
+      $("#p2score").text(player2CurrentScore);
+      }
+
+
+
+  // Change who goes first
+    if (firstPlayer === player1) {firstPlayer = player2}
+      else {firstPlayer = player1};
+          currentPlayer = firstPlayer;
+
+  //reset board
+  // $(".game-cell").text("");
+
+  }
+
+
+// What to do when the game is won by O
+let winnerFunctionO = function () {
+      $(".playerO#turn0").show();
+      $(".playerO#turn1").show();
+      $(".playerO#turn2").show();
+      $(".playerO#turn3").show();
+      $(".playerO#turn4").show();
+      $(".playerO#turn5").show();
+      $(".playerO#turn6").show();
+      $(".playerO#turn7").show();
+      $(".playerO#turn8").show();
+
+
+    if (player1 === "O"){(player1CurrentScore = player1CurrentScore + 1);
+      $("#p1score").text(player1CurrentScore)
+    }
+    else if (player2 === "O"){(player2CurrentScore = player2CurrentScore + 1);
+      $("#p2score").text(player2CurrentScore)}
+
+      // Change who goes first
+    if (firstPlayer === player1) {firstPlayer = player2}
+      else {firstPlayer = player1};
+
+
+    currentPlayer = firstPlayer;
+  //reset board
+  // $(".game-cell").text("");
+  // Show celebration
+}
+
+// Who is the current player?
+let findCurrentPlayerName = function () {
+  if (currentPlayer === player1) {return player1name}
+  else {return player2name}
+}
 
 
 
