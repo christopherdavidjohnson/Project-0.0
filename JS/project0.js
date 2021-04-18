@@ -1,4 +1,4 @@
-$(".game-grid").delay(0).fadeIn(1000);
+
 
 const player1 = "X";
 const player2 = "O";
@@ -28,6 +28,7 @@ $("#myBtnP2").on('click', function() {
   $(".player2divafter").html("<p ID='player2name'><b>O </b>" + player2name + "<b> O</b>" + "</p>" + "<p class='p2score scoretext' ID='p2score'>0</p>");
 });
 
+
 // Watch for click event and execute functions
 $(".game-cell").on('click', function() {
 // Is the cell empty? If so, fill it and switch current player.
@@ -49,6 +50,7 @@ $(".game-cell").on('click', function() {
             if (turnNumber === 10){$(".game-cell").text(""); turnNumber=1};
   }
 });
+
 
 
       // FUNCTIONS
@@ -84,7 +86,6 @@ let checkWinHardcoding = function() {
   if ($("#C1, #B2, #A3").text() === "OOO"){winnerFunctionO()};
 }
 
-
 // What to do when the game is won by X
 let winnerFunctionX = function () {
   $(".playerX#turn0").delay(0).fadeIn(0);
@@ -116,7 +117,6 @@ let winnerFunctionX = function () {
           ($("img").on('click', function() {$(".game-cell").text("")}))
 turnNumber = 1;
   }
-
 
 // What to do when the game is won by O
 let winnerFunctionO = function () {

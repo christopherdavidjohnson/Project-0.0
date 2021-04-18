@@ -1,50 +1,27 @@
-Project 0
-=========
+# Project0.0
 
-# Tic Tac Toe
+This is the first attempt at the project0 tic-tac-toe project.
 
-Subheading
-----------
-
-## Subheading
-
-### Sub-subheading
+### Preview
+![preview](images/preview.png)
 
 
-* List item 1
-* List item 2
-* List item 3
+#### Currently hosted at -
+https://christopherdavidjohnson.github.io/Project-0.0/
 
-- Also a list item
-- Also a list item 2
-- Also a list item 3
+##  ---- To Do List ----
 
-1. Numbered list item 1
-2. Numbered list item 2
-3. Numbered list item 3
-1. Still item list number 4
-1. Still item list number 5
 
-This is *how* you put something in *italics*
+1. Before inputing player names the tic-tac-toe crossword is reaching the edge of its containing div. Best solution is probably to make the board invisible until both user names are input.
 
-This is how you put something in **bold**
+2. Put in a reset game button for after a player wins rather than having to click on a firework.
 
-This is how you put something in ***bold italics***
+3. Put in some sort of animation to let user know when they have had a draw game.
 
-![Bill Murray](http://www.fillmurray.com/500/425)
+4. Better indication of who is X and who is O
 
-This is how you make something `stand out` with `background grey`
 
-```
-or here you can do a whole
-paragraph or maybe
 
-even a few paragraphs
-```
 
-```javascript
-const hello = "This is how you make things
-                look JS format"
-```
-
-Here is an example of linking to the [W3C](http://w3c.org/).
+#### Link to newer version (project 0.1) - still a work in progress
+https://christopherdavidjohnson.github.io/Project-0.1/
